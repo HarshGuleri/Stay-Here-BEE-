@@ -1,0 +1,59 @@
+
+/* --------------------------------------------------------------- */
+
+.section1{
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    justify-content: space-around; /* Adjust the spacing between figures */
+    flex-wrap: wrap;
+    margin-top: 70px;
+    padding: 0 20px; /* Add padding to maintain spacing */
+}
+.div1 {
+    /*  */
+    margin: 20px;
+    margin-bottom: 50px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.div1 h1{
+    font-size: 35px;
+}
+.div1 p {
+    margin-top: -30px;
+    margin-bottom: -50px;
+    font-size: 18px;
+}
+
+figure {
+    width: calc(33.33% - 40px); /* Adjust the width to fit three figures in a row */
+    margin: 0;
+    margin-bottom: 50px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+figure {
+    width: 370px;
+    border: 2px solid rgb(139, 122, 148);
+    border-radius: 0px;
+    padding: 0px;
+    box-shadow: 2px 1px 22px 2px;
+    transition: 1000ms;
+    background-color: rgb(231, 229, 227);
+}
+
+figcaption {
+    margin-left: 10px;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure:hover {
+    transform: scale(1.1);
+}

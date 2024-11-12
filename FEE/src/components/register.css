@@ -1,0 +1,68 @@
+.section5 img {
+    width: 100%;
+    height: auto;
+    filter: blur(7px);
+    margin: 0;
+}
+.container5_1 h1{
+    color: rgb(20, 19, 19);
+    margin-bottom: 50px;
+    margin-top: 10px;
+    
+}
+
+.container5_1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1efef;
+    width:500px;
+    height: 640px;
+    margin-top:80PX;
+    /* border: 1px black; */
+    
+    
+}
+.form2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   /* margin: 40px; */
+}
+#in{
+    margin-bottom:20px;
+    padding:15px;
+    width:100%;
+    border-radius: 2px;
+    border-color: rgb(244, 241, 236);
+}
+label{
+    margin: 20px;
+}
+#agreeCheckbox{
+    margin: 10px;
+}
+.signup1{
+    padding:15px;
+    width:100%;
+    margin: 10px;
+    color:antiquewhite;
+    background-color: #6a6aba;
+}
+.signup:hover{
+    background-color: rgb(86, 18, 142);
+}
+.signin-link , label{
+    color:rgb(14, 36, 56);
+    text-decoration: none;
+}
+span{
+    color:#32af0c
+}
+.signin-link{
+    margin-top: 30px;
+}
