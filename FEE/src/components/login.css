@@ -78,6 +78,13 @@
     font-size: 14px;
     color: #000000;
 }
+.text-3 p{
+    font-size: 25px;
+}
+.signup{
+    color: rgb(15, 209, 15);
+    font-weight: 700;
+}   
 
 .login-form input {
     padding: 15px;
@@ -125,17 +132,26 @@
 /* Responsive Styles */
 
 @media only screen and (max-width: 600px) {
+    .sectiona{
+        height:100%;
+        width: 100%
+    }
     .text-login-container {
-        flex-direction: column;
+        /* flex-direction: column;
         align-items: center;
-        text-align: center;
+        text-align: center; */
+        /* height:100%; */
+        width: 100%;
+
         
     }
     
-
+    .text-3{
+        display: none;
+    }
     .login-container {
-        width: 80%;
-        margin-top: 20px;
+        width: 100%;
+        /* margin-top: 20px; */
         height: auto;
     }
 
@@ -144,10 +160,3 @@
     }
 }
 
-.text-3 p{
-    font-size: 25px;
-}
-.signup{
-    color: rgb(15, 209, 15);
-    font-weight: 700;
-}   
