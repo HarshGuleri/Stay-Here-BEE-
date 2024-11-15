@@ -44,7 +44,7 @@
     display: flex;
     align-items: left;
     align-self: flex-start;
-    margin-top:8vw;
+    /* margin-top:8vw; */
 
 }
 
@@ -66,12 +66,13 @@
     margin: 10px;
     color:rgb(245, 239, 239);
     background-color: #6a6aba;
+    border: none;
 }
 .signup:hover{
     background-color: rgb(86, 18, 142);
 }
 .signin-link , label{
-    color:rgb(14, 36, 56);
+    /* color:rgb(14, 36, 56); */
     text-decoration: none;
 }
 span{
@@ -81,7 +82,7 @@ span{
     margin-top: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     
     .section5{
         display:none;
