@@ -20,7 +20,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
+      const response = await axios.post('https://stay-here-bee-6em3.vercel.app/auth/register', {
         name, 
         email, 
         password
