@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'https://stay-here-bee.vercel.app/' // Change this to your frontend's URL
+    origin: 'https://stay-here-bee.vercel.app' // Change this to your frontend's URL
 }));
 
 // Connect to MongoDB
