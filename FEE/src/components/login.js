@@ -11,13 +11,13 @@ const Login = ({ setIsAuthenticated }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await axios.post('http://localhost:5000/auth/login', {
         email,
         password,
       });
-  
+
       if (response.data.token) {
         setIsAuthenticated(true);
         localStorage.setItem('token', response.data.token);
@@ -28,7 +28,7 @@ const Login = ({ setIsAuthenticated }) => {
       alert('Invalid credentials');
     }
   };
-  
+
 
   return (
     <div className='body'>
@@ -41,19 +41,22 @@ const Login = ({ setIsAuthenticated }) => {
           </div>
 
           <div className="login-container">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
+            <hr></hr>
             <form className="login-form" onSubmit={handleLogin}>
               <p>Enter your e-mail and password below to log in to your account and use the benefits of our website.</p>
-              <input 
-                type="text" 
-                placeholder="email address or phone number" 
+              <input
+                id="in2"
+                type="text"
+                placeholder="email address or phone number"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <input 
-                type="password" 
-                placeholder="Password" 
+              <input
+                id="in2"
+                type="password"
+                placeholder="Password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
