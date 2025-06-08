@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     gap: 3vmax;
-    margin: 0 0vw;
+    margin: 0 2vw;
     list-style-type: none;
     color: aliceblue;
     font-size: 1.2vmax;
@@ -34,7 +34,7 @@
     margin-left: -0.5vw;
 }
 
-.login_btn {
+.login_btn,.logout_btn {
     border-radius: 25px;
     padding: 3px 10px;
     font-size: 1.04vmax;

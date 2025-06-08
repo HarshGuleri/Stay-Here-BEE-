@@ -10,11 +10,12 @@ import Services from './components/services';
 import Login from './components/login';
 import Register from './components/register';
 import RoomDetails from './components/RoomDetails';
-import CustomSlider from './components/CustomSlider';
+// import CustomSlider from './components/CustomSlider';
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Manage authentication state
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('user'));
 
 
     const items = [
@@ -140,7 +141,7 @@ const App = () => {
             description: 'Zirakpur Panchkula | 9.6 km from Chandigarh International Airport',
             price: '3700',
             size: '550 sq. ft.',
-            bed:  'King-size organic cotton bed',
+            bed: 'King-size organic cotton bed',
             bathroom: 'Solar-powered hot water, eco-friendly toiletries',
             view: 'Sustainable garden views',
             connectivity: 'Green-certified Wi-Fi access',
@@ -251,20 +252,22 @@ const App = () => {
 
 
     return (
-        <div className="App">
-            <Router>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Body items={items} />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/room-details/:id" element={<RoomDetails items={items} />} />
-                </Routes>
-            </Router>
-        </div>
-    );
+    <div className="App">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body items={items} />} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/register" element={<Register />} />
+          
+          {/* Protected Routes */}
+          <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
+          <Route path="/services" element={<PrivateRoute><Services /></PrivateRoute>} />
+          <Route path="/room-details/:id" element={<PrivateRoute><RoomDetails items={items} /></PrivateRoute>} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'https://stay-here-bee.vercel.app' // Change this to your frontend's URL
+    origin: 'http://localhost:3000' // Change this to your frontend's URL
 }));
 
 // Connect to MongoDB
@@ -33,5 +33,5 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);  // This adds routes for registration and login
 
 // Start server
-const PORT = process.env.PORT || 4500;
+const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
