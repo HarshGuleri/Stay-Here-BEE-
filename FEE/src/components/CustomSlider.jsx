@@ -17,14 +17,15 @@ const CustomSlider = ({ items }) => {
   };
 
   const handleBookNow = (roomId) => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Please log in to book a room.');
-      navigate('/login');
-    } else {
-      navigate(`/room-details/${roomId}`);
-    }
-  };
+  const auth = localStorage.getItem('user'); // changed from 'token'
+  if (!auth) {
+    alert('Please log in to book a room.');
+    navigate('/login');
+  } else {
+    navigate(`/room-details/${roomId}`);
+  }
+};
+
 
   return (
     <div className="custom-slider">

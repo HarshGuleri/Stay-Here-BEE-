@@ -18,8 +18,9 @@ const NavBar = () => {
 
     return (
         <nav>
-            <div className="navbar_01">
-                <img className="logo" src="favicon1.ico" alt="logo" />
+            <div className=" navbar navbar-expand-lg navbar_01">
+                <h2 className='logo-h1'>Stay ~Here</h2>
+                
 
                 <div className="menu-icon" onClick={toggleMenu}>
                     &#9776;
@@ -37,9 +38,21 @@ const NavBar = () => {
                     </li>
 
                     {auth ? (
-                        <li className="nav-item">
-                            <button onClick={logout} className="logout_btn">Logout</button>
+
+                        <li>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    My Profile
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a  class="dropdown-item" href="#">View</a></li>
+                                    <li><a onClick={logout} class="dropdown-item" href="#">Logout</a></li>
+                                    
+                                </ul>
+                            </div>
                         </li>
+                        // 
                     ) : (
                         <>
                             <li className='btna'>
@@ -57,6 +70,8 @@ const NavBar = () => {
                 </ul>
             </div>
         </nav>
+
+ 
     );
 };
 
