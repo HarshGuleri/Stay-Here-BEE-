@@ -1,6 +1,6 @@
 // import React from 'react';
-import React, { useState } from 'react';
-
+import React, { useState, } from 'react';
+import { useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -16,6 +16,14 @@ import PrivateRoute from './components/PrivateRoute';
 const App = () => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('user'));
+    const [bookings, setBookings] = useState(() => {
+        const saved = localStorage.getItem('bookings');
+        return saved ? JSON.parse(saved) : {};
+    });
+
+    useEffect(() => {
+        localStorage.setItem('bookings', JSON.stringify(bookings));
+    }, [bookings]);
 
 
     const items = [
@@ -252,23 +260,35 @@ const App = () => {
 
 
     return (
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Body items={items} />} />
-          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/register" element={<Register />} />
-          
-          {/* Protected Routes */}
-          <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
-          <Route path="/services" element={<PrivateRoute><Services /></PrivateRoute>} />
-          <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
-          <Route path="/room-details/:id" element={<PrivateRoute><RoomDetails items={items} /></PrivateRoute>} />
-        </Routes>
-      </Router>
-    </div>
-  );
+        <div className="App">
+            <Router>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Body items={items} />} />
+                    <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+                    <Route path="/register" element={<Register />} />
+
+                    {/* Protected Routes */}
+                    <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
+                    <Route path="/services" element={<PrivateRoute><Services /></PrivateRoute>} />
+                    <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
+                    <Route path="/room-details/:id" element={<PrivateRoute><RoomDetails items={items} /></PrivateRoute>} />
+                    <Route
+                        path="/room-details/:id"
+                        element={
+                            <PrivateRoute>
+                                <RoomDetails
+                                    items={items}
+                                    bookings={bookings}
+                                    setBookings={setBookings}
+                                />
+                            </PrivateRoute>
+                        }
+                    />
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

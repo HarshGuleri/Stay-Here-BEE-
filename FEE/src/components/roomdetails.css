@@ -27,7 +27,8 @@
 }
 
 .image-in {
-    width: 100%; /* Automatically adjust width */
+    width: 100%;
+    /* Automatically adjust width */
     max-width: 700px;
     height: auto;
 }
@@ -43,10 +44,14 @@
 .lowCorn {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 100px;
 }
 
+.additional-buttons{
+align-self: center;
+}
 .back-home {
+    align-items:center;
     margin: 30px;
     margin-top: 20px;
     margin-left: 50px;
@@ -61,13 +66,27 @@
 }
 
 .back-home:hover {
-    background-color: #884bb3; /* Darker shade on hover */
+    background-color: #884bb3;
+    /* Darker shade on hover */
+}
+
+.input-date {
+    outline: none;
+    border: 1px solid purple;
+    width: 40%;
+    border-radius: 5px;
+    padding: 5px;
+    /* margin-left: 10px; */
+}
+.booking-section{
+    margin-top: 30px;
 }
 
 /* Responsive styles for tablets */
 @media (max-width: 1024px) {
     .first-cont {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
+        /* Stack items vertically */
         align-items: center;
     }
 
@@ -100,7 +119,8 @@
     }
 
     .image-in {
-        max-width: 100%; /* Ensure image takes full width */
+        max-width: 100%;
+        /* Ensure image takes full width */
     }
 
     .uppCorn {
@@ -117,5 +137,13 @@
     .back-home {
         font-size: 18px;
         padding: 8px 15px;
+    }
+
+    .input-date {
+        outline: none;
+        border: 1px solid purple;
+        width: 50%;
+        border-radius: 5px;
+        padding: 5px;
     }
 }

@@ -1,11 +1,44 @@
 import React from 'react';
 import CustomSlider from './CustomSlider';
-// import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar'
 import '../App.css';
 
 const Body = ({ items }) => {
+
+const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [adults, setAdults] = useState('');
+  const [children, setChildren] = useState('');
+  const [filteredRooms, setFilteredRooms] = useState(items); // initially show all
+
+  const handleAvailabilityCheck = async (e) => {
+  e.preventDefault();
+
+  if (!checkIn || !checkOut) {
+    alert("Please fill both dates");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/api/rooms/check-availability", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ checkIn, checkOut })
+    });
+
+    const data = await res.json();
+    setFilteredRooms(data);
+  } catch (err) {
+    console.error(err);
+    alert("Error checking availability");
+  }
+};
+
+
   return (
     <div className='father'>
       {/* Header section */}

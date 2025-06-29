@@ -13,6 +13,12 @@ const roomSchema = new mongoose.Schema({
     amenities: String,
     services: String,
     image: String,
+    bookings: [
+        {
+            checkIn: Date,
+            checkOut: Date
+        }
+    ]
 });
 
 module.exports = mongoose.model('Room', roomSchema);
