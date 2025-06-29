@@ -1,6 +1,6 @@
 /* Main nav container */
 .navbar_01 {
-    justify-content: space-between; 
+    justify-content: space-between;
     background-color: rgb(0 0 0) !important;
     display: flex;
     align-items: center;
@@ -25,12 +25,15 @@
     color: aliceblue;
     font-size: 1.2vmax;
 }
-.nav-item:hover{
-    opacity:70%;
-    font-weight:0;
+
+.nav-item:hover {
+    opacity: 70%;
+    font-weight: 0;
 }
 
-.login_btn, .logout_btn, .register0 {
+.login_btn,
+.logout_btn,
+.register0 {
     border-radius: 5px;
     border: none;
     padding: 3.5px 12px;
@@ -46,6 +49,7 @@
     color: white;
     cursor: pointer;
 }
+
 .dropdown-menu {
     max-width: 90vw;
     overflow-wrap: break-word;
@@ -122,7 +126,8 @@
 
     /* Show menu when toggled */
     .all-links.show {
-        display: flex;
+        display: block;
+        margin-inline: auto;
     }
 
     .all-links li {
@@ -131,7 +136,8 @@
         font-size: 2.4vmax;
     }
 
-    .login_btn, .register0 {
+    .login_btn,
+    .register0 {
         border-radius: 25px;
         font-size: 2vmax;
         padding: 6px 16px;
@@ -139,18 +145,18 @@
 
 
     @media (max-width: 700px) {
-    .dropdown-menu {
-        right: 10px;
-        left: auto;
-        width: auto;
-        min-width: 140px;
-        top: 110%;
-    }
+        .dropdown-menu {
+            right: 10px;
+            left: auto;
+            width: auto;
+            min-width: 140px;
+            top: 110%;
+        }
 
-    .dropdown-menu .dropdown-item {
-        font-size: 2vmax;
-        padding: 10px 20px;
+        .dropdown-menu .dropdown-item {
+            font-size: 2vmax;
+            padding: 10px 20px;
+        }
     }
-}
 
 }

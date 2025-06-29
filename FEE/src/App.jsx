@@ -10,7 +10,7 @@ import Services from './components/services';
 import Login from './components/login';
 import Register from './components/register';
 import RoomDetails from './components/RoomDetails';
-// import CustomSlider from './components/CustomSlider';
+import Contact from './components/Contact';
 import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
@@ -263,6 +263,7 @@ const App = () => {
           {/* Protected Routes */}
           <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />
           <Route path="/services" element={<PrivateRoute><Services /></PrivateRoute>} />
+          <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
           <Route path="/room-details/:id" element={<PrivateRoute><RoomDetails items={items} /></PrivateRoute>} />
         </Routes>
       </Router>

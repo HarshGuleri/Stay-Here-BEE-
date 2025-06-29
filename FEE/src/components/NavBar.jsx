@@ -20,7 +20,7 @@ const NavBar = () => {
         <nav>
             <div className=" navbar navbar-expand-lg navbar_01">
                 <h2 className='logo-h1'>Stay ~Here</h2>
-                
+
 
                 <div className="menu-icon" onClick={toggleMenu}>
                     &#9776;
@@ -36,6 +36,9 @@ const NavBar = () => {
                     <li className="nav-item">
                         <Link to="/services" className="nav-link active">Services</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link to="/contact" className="nav-link active">Contact-us</Link>
+                    </li>
 
                     {auth ? (
 
@@ -46,9 +49,9 @@ const NavBar = () => {
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a  class="dropdown-item" href="#">View</a></li>
+                                    <li><a class="dropdown-item" href="#">View</a></li>
                                     <li><a onClick={logout} class="dropdown-item" href="#">Logout</a></li>
-                                    
+
                                 </ul>
                             </div>
                         </li>
@@ -71,7 +74,7 @@ const NavBar = () => {
             </div>
         </nav>
 
- 
+
     );
 };
 

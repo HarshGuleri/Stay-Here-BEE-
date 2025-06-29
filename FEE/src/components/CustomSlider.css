@@ -1,0 +1,11 @@
+@media (max-width: 1024px) {Add commentMore actions
+  .slide {
+    flex: 1 0 calc(100% / 2); 
+  }
+} 
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 1 0 calc(100%); 
+  }
+}
