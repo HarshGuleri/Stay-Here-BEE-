@@ -19,13 +19,7 @@ const CustomSlider = ({ items }) => {
   };
 
   const handleBookNow = (roomId) => {
-  const auth = localStorage.getItem('user'); // changed from 'token'
-  if (!auth) {
-    alert('Please log in to book a room.');
-    navigate('/login');
-  } else {
     navigate(`/room-details/${roomId}`);
-  }
 };
 
 
@@ -40,8 +34,9 @@ const CustomSlider = ({ items }) => {
                 <h2>{item.title}</h2>
                 <p>Price: ₹{item.price}</p>
                 <div className="button-flex">
+                  
                   <button className="book-now-btn" onClick={() => handleBookNow(item.id)}>
-                    BOOK NOW
+                    View Room
                   </button>
                 </div>
               </div>

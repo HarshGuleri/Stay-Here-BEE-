@@ -7,7 +7,6 @@ function About() {
 
     return (
         <div className="father">
-            <NavBar/>
 
 
             <section className="section1">

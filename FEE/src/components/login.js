@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.css';
@@ -27,6 +27,15 @@ const Login = ({ setIsAuthenticated }) => {
       alert('Invalid credentials');
     }
   };
+
+  useEffect(() => {
+  const redirectPath = localStorage.getItem('redirectAfterLogin');
+  if (redirectPath) {
+    localStorage.removeItem('redirectAfterLogin');
+    navigate(redirectPath);
+  }
+}, []);
+
 
   return (
     <div className='body'>

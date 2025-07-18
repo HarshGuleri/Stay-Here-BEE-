@@ -12,6 +12,7 @@ import Register from './components/register';
 import RoomDetails from './components/RoomDetails';
 import Contact from './components/Contact';
 import PrivateRoute from './components/PrivateRoute';
+import NavBar from './components/NavBar';
 
 const App = () => {
 
@@ -262,7 +263,7 @@ const App = () => {
     return (
         <div className="App">
             <Router>
-                <Header />
+                <NavBar />
                 <Routes>
                     <Route path="/" element={<Body items={items} />} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />

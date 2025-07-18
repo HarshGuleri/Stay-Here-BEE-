@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import NavBar from './NavBar';
+import { useNavigate } from 'react-router-dom';
+
 import './roomdetails.css'; // Make sure this CSS exists
 
 const RoomDetails = ({ items }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const room = items.find(item => item.id.toString() === id);
 
   const [bookings, setBookings] = useState(() => {
@@ -21,41 +24,53 @@ const RoomDetails = ({ items }) => {
   }, [bookings]);
 
   const handleBooking = () => {
-    if (!checkIn || !checkOut) {
-      alert('Please select check-in and check-out dates.');
-      return;
-    }
+  const auth = localStorage.getItem('user'); // or 'token', based on your login setup
 
-    const roomId = room.id;
-    const currentBookings = bookings[roomId] || [];
+  if (!auth) {
+    // Save the current path for redirect after login
+    localStorage.setItem('redirectAfterLogin', `/room-details/${room.id}`);
+    alert('Please log in to book this room.');
+    navigate('/login');
+    return;
+  }
 
-    // Prevent overlapping bookings
-    const isBooked = currentBookings.some(b =>
-      new Date(checkIn) < new Date(b.checkOut) &&
-      new Date(checkOut) > new Date(b.checkIn)
-    );
+  if (!checkIn || !checkOut) {
+    alert('Please select check-in and check-out dates.');
+    return;
+  }
 
-    if (isBooked) {
-      alert('❌ Room already booked for these dates.');
-      return;
-    }
+  const roomId = room.id;
+  const currentBookings = bookings[roomId] || [];
 
-    const updatedBookings = {
-      ...bookings,
-      [roomId]: [...currentBookings, { checkIn, checkOut }]
-    };
+  const isBooked = currentBookings.some(b =>
+    new Date(checkIn) < new Date(b.checkOut) &&
+    new Date(checkOut) > new Date(b.checkIn)
+  );
 
-    setBookings(updatedBookings);
-    alert('✅ Room booked successfully!');
+  if (isBooked) {
+    alert('❌ Room already booked for these dates.');
+    return;
+  }
+
+  const updatedBookings = {
+    ...bookings,
+    [roomId]: [...currentBookings, { checkIn, checkOut }]
   };
+
+  setBookings(updatedBookings);
+  alert('✅ Room booked successfully!');
+};
+
 
   if (!room) {
     return <div>Room not found</div>;
   }
 
+
+
+
   return (
     <div className="father">
-      <NavBar />
       <div className="containerX">
         <div className="first-cont">
           <div className="imageCont">
@@ -91,36 +106,36 @@ const RoomDetails = ({ items }) => {
 
 
           <div className="booking-section">
-          <h2>Book This Room</h2>
-          <input
-          className='input-date'
-            type="date"
-            value={checkIn}
-            onChange={e => setCheckIn(e.target.value)}
-          />
-          <input
-          className='input-date'
-            type="date"
-            value={checkOut}
-            onChange={e => setCheckOut(e.target.value)}
-          />
-          <button onClick={handleBooking} className='back-home'>Confirm Booking</button>
+            <h2>Book This Room</h2>
+            <input
+              className='input-date'
+              type="date"
+              value={checkIn}
+              onChange={e => setCheckIn(e.target.value)}
+            />
+            <input
+              className='input-date'
+              type="date"
+              value={checkOut}
+              onChange={e => setCheckOut(e.target.value)}
+            />
+            <button onClick={handleBooking} className='back-home'>Confirm Booking</button>
 
-          {bookings[room.id]?.length > 0 && (
-            <div>
-              <h3>Already Booked Dates:</h3>
-              <ul>
-                {bookings[room.id].map((b, i) => (
-                  <li key={i}>{b.checkIn} to {b.checkOut}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+            {bookings[room.id]?.length > 0 && (
+              <div>
+                <h3>Already Booked Dates:</h3>
+                <ul>
+                  {bookings[room.id].map((b, i) => (
+                    <li key={i}>{b.checkIn} to {b.checkOut}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
         </div>
 
-        </div>
 
-        
       </div>
     </div>
   );

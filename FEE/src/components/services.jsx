@@ -6,8 +6,6 @@ import NavBar from './NavBar'
 const Services = () => {
   return (
     <div className='father'>
-      <NavBar/>
-
     <section className="section1">
         <div className="div1">
             <h1>Visit Best Hotels around<b> WORLD</b> </h1><br/>

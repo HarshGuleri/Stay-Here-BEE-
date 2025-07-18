@@ -42,7 +42,6 @@ const [checkIn, setCheckIn] = useState('');
   return (
     <div className='father'>
       {/* Header section */}
-      <NavBar/>
 
       {/* Main content section */}
       <div className="image-container">

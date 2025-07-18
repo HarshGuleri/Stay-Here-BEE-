@@ -76,7 +76,7 @@ align-self: center;
     width: 40%;
     border-radius: 5px;
     padding: 5px;
-    /* margin-left: 10px; */
+    margin-right: 10px;
 }
 .booking-section{
     margin-top: 30px;
@@ -98,11 +98,15 @@ align-self: center;
     .lowCorn {
         flex-direction: column;
         align-items: center;
+        gap:0px;
     }
 
     .back-home {
         margin: 20px auto;
     }
+    /* .booking-section{
+            display: contents;
+    } */
 }
 
 /* Responsive styles for mobile */
@@ -138,7 +142,9 @@ align-self: center;
         font-size: 18px;
         padding: 8px 15px;
     }
-
+    .booking-section{
+            display: contents;
+    }
     .input-date {
         outline: none;
         border: 1px solid purple;
