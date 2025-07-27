@@ -10,8 +10,8 @@ const roomSchema = new mongoose.Schema({
     view: String,
     connectivity: String,
     entertainment: String,
-    amenities: String,
-    services: String,
+    amenities: [String],
+    services: [String],
     image: String,
     bookings: [
         {
@@ -19,6 +19,6 @@ const roomSchema = new mongoose.Schema({
             checkOut: Date
         }
     ]
-});
+}, { timestamps: true });
 
-module.exports = mongoose.model('Room', roomSchema);
+module.exports = mongoose.model('rooms', roomSchema);

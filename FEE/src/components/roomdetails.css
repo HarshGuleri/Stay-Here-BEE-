@@ -104,9 +104,7 @@ align-self: center;
     .back-home {
         margin: 20px auto;
     }
-    /* .booking-section{
-            display: contents;
-    } */
+   
 }
 
 /* Responsive styles for mobile */
@@ -124,7 +122,6 @@ align-self: center;
 
     .image-in {
         max-width: 100%;
-        /* Ensure image takes full width */
     }
 
     .uppCorn {

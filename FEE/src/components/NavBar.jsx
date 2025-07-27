@@ -49,7 +49,7 @@ const NavBar = () => {
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">View</a></li>
+                                    <li><Link to="/profile" class="dropdown-item" href="#">View</Link></li>
                                     <li><a onClick={logout} class="dropdown-item" href="#">Logout</a></li>
 
                                 </ul>

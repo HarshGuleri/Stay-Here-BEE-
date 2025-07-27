@@ -2,7 +2,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='footer'>
-      <p>© 2024 Your Company Name. All rights reserved.</p>
+      <p>© 2025 Stay Here. All rights reserved.</p>
         <p>
             <a href="#">Terms of Service</a> |
             <a href="#">Privacy Policy</a> |

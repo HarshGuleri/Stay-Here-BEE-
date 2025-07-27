@@ -20,7 +20,7 @@ const Register = () => {
     }
   
     try {
-      const response = await axios.post('https://stay-here-bee.onrender.com/auth/register', {
+      const response = await axios.post('http://localhost:5000/auth/register', {
         name, 
         email, 
         password

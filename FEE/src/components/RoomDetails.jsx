@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import './roomdetails.css'; // Make sure this CSS exists
 
 const RoomDetails = ({ items }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const room = items.find(item => item.id.toString() === id);
+  const room = items.find(item => item?._id?.toString() === id);
 
   const [bookings, setBookings] = useState(() => {
     const saved = localStorage.getItem('bookings');
@@ -18,56 +16,50 @@ const RoomDetails = ({ items }) => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
 
-  // Sync with localStorage on every update
   useEffect(() => {
     localStorage.setItem('bookings', JSON.stringify(bookings));
   }, [bookings]);
 
   const handleBooking = () => {
-  const auth = localStorage.getItem('user'); // or 'token', based on your login setup
+    const auth = localStorage.getItem('user');
 
-  if (!auth) {
-    // Save the current path for redirect after login
-    localStorage.setItem('redirectAfterLogin', `/room-details/${room.id}`);
-    alert('Please log in to book this room.');
-    navigate('/login');
-    return;
-  }
+    if (!auth) {
+      localStorage.setItem('redirectAfterLogin', `/room-details/${room._id}`);
+      alert('Please log in to book this room.');
+      navigate('/login');
+      return;
+    }
 
-  if (!checkIn || !checkOut) {
-    alert('Please select check-in and check-out dates.');
-    return;
-  }
+    if (!checkIn || !checkOut) {
+      alert('Please select check-in and check-out dates.');
+      return;
+    }
 
-  const roomId = room.id;
-  const currentBookings = bookings[roomId] || [];
+    const roomId = room._id;
+    const currentBookings = bookings[roomId] || [];
 
-  const isBooked = currentBookings.some(b =>
-    new Date(checkIn) < new Date(b.checkOut) &&
-    new Date(checkOut) > new Date(b.checkIn)
-  );
+    const isBooked = currentBookings.some(b =>
+      new Date(checkIn) < new Date(b.checkOut) &&
+      new Date(checkOut) > new Date(b.checkIn)
+    );
 
-  if (isBooked) {
-    alert('❌ Room already booked for these dates.');
-    return;
-  }
+    if (isBooked) {
+      alert('❌ Room already booked for these dates.');
+      return;
+    }
 
-  const updatedBookings = {
-    ...bookings,
-    [roomId]: [...currentBookings, { checkIn, checkOut }]
+    const updatedBookings = {
+      ...bookings,
+      [roomId]: [...currentBookings, { checkIn, checkOut }]
+    };
+
+    setBookings(updatedBookings);
+    alert('✅ Room booked successfully!');
   };
-
-  setBookings(updatedBookings);
-  alert('✅ Room booked successfully!');
-};
-
 
   if (!room) {
     return <div>Room not found</div>;
   }
-
-
-
 
   return (
     <div className="father">
@@ -80,7 +72,7 @@ const RoomDetails = ({ items }) => {
             <div className="uppCorn">
               <h1>{room.title}</h1>
               <p><b>Price: ₹</b>{room.price}</p>
-              <p><b>Room Type:</b> {room.roomType}</p>
+              {/* <p><b>Room Type:</b> {room.roomType}</p> */}
               <p><b>Size:</b> {room.size}</p>
               <p><b>Bed:</b> {room.bed}</p>
               <p><b>Bathroom:</b> {room.bathroom}</p>
@@ -104,7 +96,6 @@ const RoomDetails = ({ items }) => {
             </Link>
           </div>
 
-
           <div className="booking-section">
             <h2>Book This Room</h2>
             <input
@@ -121,21 +112,18 @@ const RoomDetails = ({ items }) => {
             />
             <button onClick={handleBooking} className='back-home'>Confirm Booking</button>
 
-            {bookings[room.id]?.length > 0 && (
+            {bookings[room._id]?.length > 0 && (
               <div>
                 <h3>Already Booked Dates:</h3>
                 <ul>
-                  {bookings[room.id].map((b, i) => (
+                  {bookings[room._id].map((b, i) => (
                     <li key={i}>{b.checkIn} to {b.checkOut}</li>
                   ))}
                 </ul>
               </div>
             )}
           </div>
-
         </div>
-
-
       </div>
     </div>
   );

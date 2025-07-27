@@ -66,7 +66,7 @@ router.post('/book/:id', async (req, res) => {
     }
 
     // Push new booking
-    room.bookings.push({ checkIn, checkOut });
+    room.bookings.push({ checkIn, checkOut, userId });
     await room.save();
 
     res.json({ message: 'Room booked successfully', room });

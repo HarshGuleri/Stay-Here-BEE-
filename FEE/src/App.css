@@ -71,8 +71,7 @@ input {
   color: #6a6aba;
   padding: 20px;
   text-align: center;
-  /* border:solid #1f1818;
-  border-radius: 100px; */
+
 }
 
 
@@ -106,6 +105,7 @@ input {
   display: flex;
   gap: 10px; /* Adjust the gap between cards as needed */
   transition: transform 0.3s ease; /* Smooth transition for slider effect */
+  
 }
 
 .slide {
