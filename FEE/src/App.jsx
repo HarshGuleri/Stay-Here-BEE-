@@ -9,6 +9,7 @@ import About from './components/About';
 import Services from './components/services';
 import Login from './components/login';
 import Register from './components/register';
+import RegisterForm from './components/RegisterForm';
 import RoomDetails from './components/RoomDetails';
 import Contact from './components/Contact';
 import PrivateRoute from './components/PrivateRoute';
@@ -268,6 +269,7 @@ const App = () => {
                     <Route path="/" element={<Body items={items} />} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/register" element={<RegisterForm/>} />
 
                     {/* Protected Routes */}
                     <Route path="/about" element={<PrivateRoute><About /></PrivateRoute>} />

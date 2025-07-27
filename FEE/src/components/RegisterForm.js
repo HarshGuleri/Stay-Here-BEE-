@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './register.css';
+import NavBar from './NavBar';
 
 const RegisterForm = () => {
   const [name, setName] = React.useState('');
@@ -20,7 +21,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
+      const response = await axios.post('https://stay-here-bee.onrender.com/auth/register', {
         name, 
         email, 
         password
@@ -37,6 +38,8 @@ const RegisterForm = () => {
   };
 
   return (
+    <>
+  
     <div className="container5_1"> {/* Ensure this class matches your responsive design */}
       <div className="upper">
         <h1>CREATE ACCOUNT</h1>
@@ -87,6 +90,8 @@ const RegisterForm = () => {
         </form>
       </div>
     </div>
+    </>
+    
   );
 };
 

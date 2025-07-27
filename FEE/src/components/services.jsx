@@ -1,7 +1,6 @@
 import React from 'react'
 import './services.css'
-import { Link } from 'react-router-dom';
-import NavBar from './NavBar'
+
 
 const Services = () => {
   return (
@@ -14,7 +13,7 @@ const Services = () => {
         <section className="container">
 
             <figure>
-                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmVkcm9vbXxlbnwwfHwwfHx8MA%3D%3D"/>
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmVkcm9vbXxlbnwwfHwwfHx8MA%3D%3D" alt='img1'/>
                 <figcaption>
                     <h3>3 Star</h3>
                     <p>Hotel Asrani International is situated in Secunderabad, within 4 km of Snow World and 4.5 km of Jalavihar.</p>
@@ -24,7 +23,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVkcm9vbXxlbnwwfHwwfHx8MA%3D%3D"/>
+                    src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVkcm9vbXxlbnwwfHwwfHx8MA%3D%3D"alt='img'/>
                 <figcaption>
                     <h3>3 Star</h3>
                     <p>
@@ -38,7 +37,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://st.hzcdn.com/simgs/pictures/bedrooms/lockhart-plan-greenway-impression-homes-img~c8e198a90e4f00bb_14-9072-1-2fd6d6c.jpg"/>
+                    src="https://st.hzcdn.com/simgs/pictures/bedrooms/lockhart-plan-greenway-impression-homes-img~c8e198a90e4f00bb_14-9072-1-2fd6d6c.jpg" alt='img'/>
                 <figcaption>
                     <h3>3 Star</h3>
                     <p>
@@ -52,7 +51,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://i.pinimg.com/originals/6f/72/35/6f7235447ca2c37edf7df110269d363b.jpg"/>
+                    src="https://i.pinimg.com/originals/6f/72/35/6f7235447ca2c37edf7df110269d363b.jpg" alt='img'/>
                 <figcaption>
                     <h3>5 Star</h3>
                     <p>
@@ -66,7 +65,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://media.istockphoto.com/id/934123520/photo/3d-rendering-modern-luxury-bedroom-suite-in-resort-with-bathroom.jpg?s=612x612&w=0&k=20&c=Es7IaaoVajNKqxU6estoa1TbxoSUy86MzGz48p78Oj0="/>
+                    src="https://media.istockphoto.com/id/934123520/photo/3d-rendering-modern-luxury-bedroom-suite-in-resort-with-bathroom.jpg?s=612x612&w=0&k=20&c=Es7IaaoVajNKqxU6estoa1TbxoSUy86MzGz48p78Oj0=" alt='img'/>
                 <figcaption>
                     <h3>5 Star</h3>
                     <p>
@@ -80,7 +79,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP3xmLwUI4xKI6qbft6QUZSyP0hhzUqbeSZEy07tgO0QniCX8m_fUS33jVrAf3wkqqNxw&usqp=CAU"/>
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP3xmLwUI4xKI6qbft6QUZSyP0hhzUqbeSZEy07tgO0QniCX8m_fUS33jVrAf3wkqqNxw&usqp=CAU" alt='img'/>
                 <figcaption>
                     <h3>5 Starr</h3>
                     <p>
@@ -94,7 +93,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://media-magazine.trivago.com/wp-content/uploads/2019/02/20121020/hotel-emirates-palace-abu-dhabi-suite-seating-area.jpeg"/>
+                    src="https://media-magazine.trivago.com/wp-content/uploads/2019/02/20121020/hotel-emirates-palace-abu-dhabi-suite-seating-area.jpeg" alt='img'/>
                 <figcaption>
                     <h3>7 Star</h3>
                     <p>
@@ -108,7 +107,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://seoimgak.mmtcdn.com/blog/sites/default/files/images/Emirates-Palace.jpg"/>
+                    src="https://seoimgak.mmtcdn.com/blog/sites/default/files/images/Emirates-Palace.jpg" alt='img'/>
                 <figcaption>
                     <h3>7 Star</h3>
                     <p>
@@ -122,7 +121,7 @@ const Services = () => {
 
             <figure>
                 <img
-                    src="https://c8.alamy.com/comp/D3BGTT/the-bedroom-in-a-suite-in-the-burj-al-arab-sails-in-the-desert-7-star-D3BGTT.jpg"/>
+                    src="https://c8.alamy.com/comp/D3BGTT/the-bedroom-in-a-suite-in-the-burj-al-arab-sails-in-the-desert-7-star-D3BGTT.jpg" alt='img'/>
                 <figcaption>
                     <h3>7 Star</h3>
                     <p>
