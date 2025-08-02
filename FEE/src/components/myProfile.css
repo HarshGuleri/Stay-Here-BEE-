@@ -1,0 +1,163 @@
+.profile-settings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #d3dfe3;
+}
+
+.profile-settings-card {
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 40px 48px 32px 48px;
+  min-width: 420px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.profile-settings-title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.profile-settings-tabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 32px;
+}
+
+.profile-settings-tabs span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b0b0b0;
+  padding-bottom: 8px;
+  cursor: pointer;
+  transition: color 0.2s;
+} 
+.profile-settings-tabs span:hover {
+  color: #1ca7ec;
+}
+.profile-settings-tabs .active {
+  color: #1ca7ec;
+  border-bottom: 2px solid #1ca7ec;
+}
+
+.profile-settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookings-tab-content {
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.profile-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.profile-image {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+  margin-bottom: 8px;
+}
+.change-link {
+  color: #1ca7ec;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.profile-fields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.profile-fields label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.profile-fields input {
+  margin-top: 4px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafbfc;
+  outline: none;
+  transition: border 0.2s;
+}
+.profile-fields input:focus {
+  border: 1.5px solid #1ca7ec;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #1ca7ec;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-btn:hover {
+  background: #138fc2;
+}
+
+/* Responsive design for booking history */
+@media (max-width: 768px) {
+  .profile-settings-card {
+    min-width: 320px;
+    padding: 30px 24px 24px 24px;
+    margin: 20px;
+  }
+  
+  .profile-settings-title {
+    font-size: 1.8rem;
+  }
+  
+  .bookings-tab-content {
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-settings-card {
+    min-width: 280px;
+    padding: 20px 16px 16px 16px;
+  }
+  
+  .profile-settings-title {
+    font-size: 1.6rem;
+  }
+  
+  .profile-settings-tabs {
+    gap: 20px;
+  }
+  
+  .profile-settings-tabs span {
+    font-size: 0.9rem;
+  }
+}

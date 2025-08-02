@@ -13,6 +13,8 @@ const NavBar = () => {
 
     const logout = () => {
         localStorage.clear();
+        // Trigger a custom event to notify App component about auth change
+        window.dispatchEvent(new Event('storage'));
         navigate('/login');
     };
 

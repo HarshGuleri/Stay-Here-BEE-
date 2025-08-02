@@ -1,12 +1,10 @@
 /* Main nav container */
 .navbar_01 {
     justify-content: space-between;
-    background-color: rgb(0 0 0) !important;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     display: flex;
     align-items: center;
-    /* padding: 0rem; */
     position: relative;
-    /* overflow: hidden; */
 }
 
 .logo-h1 {
@@ -25,6 +23,8 @@
     color: aliceblue;
     font-size: 1.2vmax;
 }
+
+
 
 .nav-item:hover {
     opacity: 70%;
@@ -57,8 +57,6 @@
 }
 
 
-/* Fix dropdown inside responsive navbar */
-/* Fix dropdown overflow - center it below the button */
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -119,7 +117,7 @@
         top: 100%;
         right: 0;
         width: 100%;
-        background-color: black;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         z-index: 999;
         padding: 1rem 0;
     }
@@ -155,7 +153,6 @@
         }
 
         .dropdown-menu li {
-            /* font-size: vmax; */
             padding: 10px;
         }
 

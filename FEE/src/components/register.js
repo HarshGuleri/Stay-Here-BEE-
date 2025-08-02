@@ -14,8 +14,18 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
   
+    if (!name || !email || !password) {
+      alert('Please fill in all fields');
+      return;
+    }
+  
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
+      return;
+    }
+  
+    if (!agreeTerms) {
+      alert('Please agree to the terms and conditions');
       return;
     }
   
@@ -32,7 +42,8 @@ const Register = () => {
       }
     } catch (error) {
       console.error('Registration error:', error.response || error);
-      alert(error.response?.data?.message || 'Error registering user');
+      const errorMessage = error.response?.data?.message || 'Error registering user';
+      alert(errorMessage);
     }
   };
   

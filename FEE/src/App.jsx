@@ -20,6 +20,27 @@ const App = () => {
         return saved ? JSON.parse(saved) : {};
     });
 
+    // Listen for authentication changes
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setIsAuthenticated(!!localStorage.getItem('user'));
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        
+        // Also check on mount and when localStorage changes
+        const checkAuth = () => {
+            setIsAuthenticated(!!localStorage.getItem('user'));
+        };
+        
+        window.addEventListener('focus', checkAuth);
+        
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('focus', checkAuth);
+        };
+    }, []);
+
     useEffect(() => {
         localStorage.setItem('bookings', JSON.stringify(bookings));
     }, [bookings]);

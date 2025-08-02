@@ -33,7 +33,7 @@ const roomRoutes = require('./routes/roomRoutes');
 app.use('/api/rooms', roomRoutes);
 
 const authRoutes = require('./routes/authRoutes');
-app.use('/auth', authRoutes);  // This adds routes for registration and login
+app.use('/auth', authRoutes); 
 
 // Start server
 const PORT = process.env.PORT || 5500;

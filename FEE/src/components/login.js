@@ -20,6 +20,8 @@ const Login = ({ setIsAuthenticated }) => {
       if (response.data.token) {
         localStorage.setItem('user', response.data.token);
         setIsAuthenticated(true);
+        // Trigger a custom event to notify App component about auth change
+        window.dispatchEvent(new Event('storage'));
         navigate('/');
       }
     } catch (error) {
