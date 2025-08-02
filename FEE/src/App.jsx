@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { API_ENDPOINTS } from './config/api';
 import Body from './components/Body';
 import About from './components/About';
 import Services from './components/services';
@@ -50,7 +51,7 @@ const App = () => {
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/rooms', {
+                const response = await fetch(API_ENDPOINTS.ROOMS, {
                     mode: 'cors'
                 });
                 const data = await response.json();

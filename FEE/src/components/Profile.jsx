@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BookingHistory from './BookingHistory';
+import { API_ENDPOINTS } from '../config/api';
 import './myProfile.css';
 
 const Profile = () => {
@@ -40,7 +41,7 @@ const Profile = () => {
     }
     
     console.log('Fetching profile for userId:', userId);
-    fetch(`http://localhost:5000/auth/profile/${userId}`)
+    fetch(API_ENDPOINTS.PROFILE(userId))
       .then(res => {
         console.log('Profile fetch response status:', res.status);
         return res.json();
@@ -86,7 +87,7 @@ const Profile = () => {
       formData.append('profileImage', profile.profileImage);
     }
     try {
-      const res = await fetch(`http://localhost:5000/auth/profile/${userId}`, {
+      const res = await fetch(API_ENDPOINTS.PROFILE(userId), {
         method: 'PATCH',
         body: formData,
       });

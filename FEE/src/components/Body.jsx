@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
+import { API_ENDPOINTS } from '../config/api';
 // import NavBar from './NavBar';
 import '../App.css';
 
@@ -28,7 +29,7 @@ const Body = ({ rooms }) => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/rooms/check-availability", {
+      const res = await fetch(API_ENDPOINTS.CHECK_AVAILABILITY, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import './bookingHistory.css';
 
 const BookingHistory = () => {
@@ -20,7 +21,7 @@ const BookingHistory = () => {
         const payload = JSON.parse(atob(token.split('.')[1]));
         const userId = payload.id || payload._id;
 
-        const response = await fetch(`http://localhost:5000/api/rooms/user-bookings/${userId}`);
+        const response = await fetch(API_ENDPOINTS.USER_BOOKINGS(userId));
         const data = await response.json();
 
         if (!response.ok) {

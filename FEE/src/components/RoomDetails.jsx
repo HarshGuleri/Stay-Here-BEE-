@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { API_ENDPOINTS } from '../config/api';
 import './roomdetails.css'; // Make sure this CSS exists
 
 const RoomDetails = ({ items }) => {
@@ -32,7 +33,7 @@ const RoomDetails = ({ items }) => {
   useEffect(() => {
     const fetchBookedDates = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/rooms/calendar/${id}`);
+        const res = await fetch(API_ENDPOINTS.ROOM_CALENDAR(id));
         const data = await res.json();
         setServerBookings(data.bookedDates || []);
       } catch (err) {
@@ -81,7 +82,7 @@ const RoomDetails = ({ items }) => {
   });
 
   try {
-    const res = await fetch(`http://localhost:5000/api/rooms/book/${room._id}`, {
+    const res = await fetch(API_ENDPOINTS.BOOK_ROOM(room._id), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ checkIn, checkOut, userId }),
